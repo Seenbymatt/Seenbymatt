@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Seen by Matt - Photography · Madison, NJ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Crect x='4' y='14' width='56' height='40' rx='6' fill='none' stroke='%23C9A84C' stroke-width='3.5'/%3E%3Ccircle cx='32' cy='34' r='13' fill='none' stroke='%23C9A84C' stroke-width='3.5'/%3E%3Ccircle cx='32' cy='34' r='7' fill='%23C9A84C'/%3E%3Crect x='22' y='4' width='20' height='12' rx='3' fill='%23C9A84C'/%3E%3Ccircle cx='50' cy='20' r='4.5' fill='%23C9A84C'/%3E%3C/svg%3E"/>
+<meta name="description" content="Premium photography for portraits, headshots, real estate, events & weddings across Morris County, NJ."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0A0A0A;
+  --white:#F5F2ED;
+  --gold:#C9A84C;
+  --gold-dim:#a8872e;
+  --gray:#111111;
+  --gray2:#181818;
+  --muted:#888880;
+  --border:rgba(201,168,76,0.15);
+  --font-head:'Montserrat',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);font-weight:400;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 5vw;background:rgba(17,17,17,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--font-head);font-size:1.1rem;font-weight:900;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--gold);color:var(--black)!important;padding:0.55rem 1.3rem;border-radius:4px;font-weight:700!important;}
+.nav-cta:hover{background:var(#a8872e)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--black);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--font-head);font-size:2rem;font-weight:700;color:var(--white);text-decoration:none;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:1.5rem;right:5vw;font-size:2rem;cursor:pointer;color:var(--muted);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:10rem 5vw 6rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(201,168,76,0.04) 0%,transparent 65%);}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;opacity:0;animation:up 0.7s 0.1s forwards;}
+.hero-tag::before{content:'';width:24px;height:2px;background:var(--gold);display:block;}
+h1.hero-title{font-family:var(--font-head);font-weight:900;font-size:clamp(3.5rem,9vw,8rem);line-height:0.95;letter-spacing:-0.03em;margin-bottom:2rem;opacity:0;animation:up 0.7s 0.25s forwards;}
+h1.hero-title .gold{color:var(--gold);}
+.hero-sub{font-size:1.05rem;font-weight:300;color:var(--muted);max-width:480px;margin-bottom:3rem;opacity:0;animation:up 0.7s 0.4s forwards;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:up 0.7s 0.55s forwards;}
+.btn-primary{display:inline-block;padding:1rem 2.2rem;background:var(--gold);color:var(--black);font-family:var(--font-head);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:background 0.2s,transform 0.15s;}
+.btn-primary:hover{background:var(#a8872e);transform:translateY(-2px);}
+.btn-outline{display:inline-block;padding:1rem 2.2rem;border:1.5px solid rgba(255,255,255,0.2);color:var(--white);font-family:var(--font-head);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:border-color 0.2s,transform 0.15s;}
+.btn-outline:hover{border-color:var(--white);transform:translateY(-2px);}
+.hero-scroll{position:absolute;bottom:3rem;left:5vw;font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:0.75rem;opacity:0;animation:up 0.7s 0.8s forwards;}
+.hero-scroll::after{content:'';width:40px;height:1px;background:var(--muted);}
+.hero-stats{position:absolute;bottom:3rem;right:5vw;display:flex;gap:3rem;opacity:0;animation:up 0.7s 0.8s forwards;}
+.hero-stat-num{font-family:var(--font-head);font-size:2rem;font-weight:900;color:var(--white);line-height:1;}
+.hero-stat-label{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+
+/* TRUSTED BAR */
+.trusted-bar{background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 5vw;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.trusted-label{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.trusted-divider{width:1px;height:20px;background:var(--border);}
+.trusted-items{display:flex;gap:2.5rem;flex-wrap:wrap;}
+.trusted-item{font-size:0.82rem;font-weight:500;color:var(--muted);}
+
+/* SECTIONS */
+.section{padding:7rem 5vw;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-label{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
+.section-label::before{content:'';width:20px;height:2px;background:var(--gold);display:block;}
+h2.section-title{font-family:var(--font-head);font-weight:900;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem;}
+h2.section-title .gold{color:var(--gold);}
+.section-body{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;}
+
+/* WHY ME */
+.whyme{background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.whyme-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.whyme-photo{aspect-ratio:3/4;background:var(--gray2);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;overflow:hidden;}
+.whyme-photo img{width:100%;height:100%;object-fit:cover;}
+.whyme-content p{font-size:1rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.8;}
+.whyme-content p strong{color:var(--white);font-weight:500;}
+.whyme-tagline{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--gold);margin:2rem 0;padding-left:1.2rem;border-left:3px solid var(--gold);line-height:1.4;}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
+.pillar{padding:1.2rem;background:var(--black);border:1px solid var(--border);border-radius:6px;}
+.pillar-title{font-family:var(--font-head);font-size:0.82rem;font-weight:700;letter-spacing:0.04em;margin-bottom:0.3rem;}
+.pillar-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:3.5rem;}
+.service-card{background:var(--gray);padding:2.5rem 2rem;transition:background 0.2s;position:relative;overflow:hidden;}
+.service-card:hover{background:var(--gray2);}
+.service-card:hover .service-arrow{opacity:1;transform:translateX(0);}
+.service-num{font-family:var(--font-head);font-size:3rem;font-weight:900;color:rgba(255,255,255,0.05);line-height:1;margin-bottom:1.2rem;}
+.service-name{font-family:var(--font-head);font-size:1rem;font-weight:700;letter-spacing:0.04em;margin-bottom:0.6rem;}
+.service-desc{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+.service-arrow{position:absolute;bottom:2rem;right:2rem;font-size:1.2rem;color:var(--gold);opacity:0;transform:translateX(-8px);transition:all 0.2s;}
+
+/* PORTFOLIO */
+.portfolio-tabs{display:flex;gap:0.5rem;margin:2.5rem 0;flex-wrap:wrap;}
+.tab{padding:0.6rem 1.4rem;border:1.5px solid rgba(255,255,255,0.1);border-radius:4px;font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);background:transparent;cursor:pointer;transition:all 0.2s;}
+.tab:hover{border-color:var(--white);color:var(--white);}
+.tab.active{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.masonry{columns:3;column-gap:8px;}
+.masonry-item{break-inside:avoid;margin-bottom:8px;position:relative;overflow:hidden;border-radius:4px;cursor:pointer;}
+.masonry-item img{display:block;width:100%;height:auto;}
+.masonry-placeholder{width:100%;background:var(--gray2);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;}
+.masonry-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,0.9) 0%,transparent 50%);opacity:0;transition:opacity 0.25s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;}
+.masonry-item:hover .masonry-overlay{opacity:1;}
+.overlay-title{font-family:var(--font-head);font-size:0.88rem;font-weight:700;color:var(--white);}
+.overlay-meta{font-size:0.72rem;color:var(--gold);margin-top:2px;}
+
+/* PRICING */
+.pricing-section{background:var(--gray);border-top:1px solid var(--border);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3.5rem;}
+.price-card{background:var(--black);border:1px solid var(--border);border-radius:8px;padding:2rem 1.75rem;transition:border-color 0.2s,transform 0.2s;}
+.price-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);}
+.price-category{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.price-name{font-family:var(--font-head);font-size:1.2rem;font-weight:800;margin-bottom:0.3rem;}
+.price-amount{font-family:var(--font-head);font-size:2.4rem;font-weight:900;color:var(--white);line-height:1;margin:1rem 0 0.3rem;}
+.price-note{font-size:0.78rem;color:var(--muted);margin-bottom:1.3rem;}
+.price-divider{border:none;border-top:1px solid var(--border);margin:1rem 0;}
+.price-row{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--muted);padding:4px 0;}
+.price-row span:last-child{color:var(--white);font-weight:500;}
+.price-btn{display:block;margin-top:1.5rem;padding:0.75rem;text-align:center;border:1.5px solid rgba(255,255,255,0.1);border-radius:4px;font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:background 0.2s,border-color 0.2s,color 0.2s;}
+.price-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.pricing-terms{margin-top:1.5rem;padding:1.5rem 2rem;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;color:var(--muted);}
+.pricing-terms strong{color:var(--gold);font-weight:600;}
+
+/* BOOKING */
+.booking-section{background:var(--black);border-top:1px solid var(--border);}
+.booking-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:3.5rem;margin-bottom:2rem;}
+.booking-step{background:var(--gray);padding:2.5rem 2rem;}
+.step-num{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;color:var(--gold);margin-bottom:1rem;font-family:var(--font-head);}
+.step-title{font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;}
+.step-desc{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+.booking-cta{text-align:center;padding:3rem;background:var(--gray);border:1px solid var(--border);border-radius:8px;}
+.booking-cta p{font-size:0.88rem;color:var(--muted);margin-top:1rem;}
+
+/* TESTIMONIALS */
+.testimonials-section{background:var(--gray);border-top:1px solid var(--border);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.testi-card{background:var(--black);border:1px solid var(--border);border-radius:8px;padding:2rem;}
+.stars{color:var(--gold);font-size:0.85rem;letter-spacing:2px;margin-bottom:1rem;}
+.testi-quote{font-size:0.95rem;color:var(--white);line-height:1.75;margin-bottom:1.5rem;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:0.75rem;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--gray2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:0.75rem;font-weight:700;color:var(--gold);flex-shrink:0;}
+.testi-name{font-family:var(--font-head);font-size:0.82rem;font-weight:700;}
+.testi-role{font-size:0.75rem;color:var(--muted);}
+.review-bar{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem;padding:1.5rem 2rem;background:var(--black);border:1px solid var(--border);border-radius:6px;}
+.review-score{font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:var(--gold);}
+.review-detail p{font-size:0.8rem;color:var(--muted);}
+.review-detail strong{color:var(--white);font-weight:500;}
+
+/* CONTACT */
+.contact-section{background:var(--black);border-top:1px solid var(--border);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;margin-top:3.5rem;}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-item-label{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+.contact-item-val{font-size:0.95rem;color:var(--white);}
+.contact-form{display:flex;flex-direction:column;gap:1rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.contact-form input,.contact-form select,.contact-form textarea{background:var(--gray);border:1.5px solid var(--border);color:var(--white);font-family:var(--font-body);font-size:0.9rem;font-weight:300;padding:1rem 1.2rem;border-radius:4px;outline:none;width:100%;transition:border-color 0.2s;}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--gold);}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted);}
+.contact-form select{appearance:none;color:var(--muted);}
+.contact-form textarea{resize:vertical;min-height:140px;}
+.contact-submit{padding:1.1rem;background:var(--gold);border:none;border-radius:4px;font-family:var(--font-head);font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);cursor:pointer;transition:background 0.2s,transform 0.15s;width:100%;}
+.contact-submit:hover{background:var(#a8872e);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--gray);border-top:1px solid var(--border);padding:3rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{font-family:var(--font-head);font-size:1rem;font-weight:900;color:var(--white);}
+.footer-logo span{color:var(--gold);}
+.footer-copy{font-size:0.78rem;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:960px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:8rem 5vw 10rem;}
+  .hero-stats{position:static;margin-top:3rem;gap:2rem;}
+  .hero-scroll{display:none;}
+  .whyme-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .services-grid,.booking-steps{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .masonry{columns:2;}
+  .pillars{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .section{padding:5rem 5vw;}
+  h1.hero-title{font-size:3rem;}
+  h2.section-title{font-size:2rem;}
+  .masonry{columns:1;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline{text-align:center;width:100%;}
+  footer{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <svg width="36" height="36" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
+      <rect x="4" y="14" width="56" height="40" rx="6" fill="none" stroke="#C9A84C" stroke-width="3.5"/>
+      <circle cx="32" cy="34" r="13" fill="none" stroke="#C9A84C" stroke-width="3.5"/>
+      <circle cx="32" cy="34" r="7" fill="#C9A84C"/>
+      <rect x="22" y="4" width="20" height="12" rx="3" fill="#C9A84C"/>
+      <circle cx="50" cy="20" r="4.5" fill="#C9A84C"/>
+    </svg>
+    <span style="font-family:var(--font-head);font-size:1rem;font-weight:900;color:#F5F2ED;letter-spacing:0.04em;">SEEN BY MATT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">✕</span>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#portfolio" onclick="toggleMenu()">Work</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()" style="color:var(--gold)">Book Now →</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Madison, NJ · Morris County</div>
+  <h1 class="hero-title">Your Moment.<br><span class="gold">Captured.</span></h1>
+  <p class="hero-sub">Premium photography for portraits, headshots, real estate, events, and weddings across New Jersey.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Book a Session</a>
+    <a href="#portfolio" class="btn-outline">View My Work</a>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+  <div class="hero-stats">
+    <div><div class="hero-stat-num">6+</div><div class="hero-stat-label">Service types</div></div>
+    <div><div class="hero-stat-num">24h</div><div class="hero-stat-label">Response time</div></div>
+    <div><div class="hero-stat-num">NJ</div><div class="hero-stat-label">Morris County</div></div>
+  </div>
+</section>
+
+<div class="trusted-bar">
+  <span class="trusted-label">Trusted by clients across Morris County</span>
+  <div class="trusted-divider"></div>
+  <div class="trusted-items">
+    <span class="trusted-item">Local businesses</span>
+    <span class="trusted-item">Families</span>
+    <span class="trusted-item">Student athletes</span>
+    <span class="trusted-item">Real estate agents</span>
+    <span class="trusted-item">Couples &amp; weddings</span>
+  </div>
+</div>
+
+<section class="section whyme" id="about">
+  <div class="section-inner">
+    <div class="whyme-grid">
+      <div class="whyme-photo"><img src="DSC04406.jpeg" alt="Matt Ortiz - Seen by Matt Photography"/></div>
+      <div class="whyme-content">
+        <div class="section-label">About Matt</div>
+        <h2 class="section-title">Why <span class="gold">Me?</span></h2>
+        <p>I'm a <strong>21-year-old photographer</strong> based in Madison, NJ. I started with a camera in my hands and never really put it down - what began as a passion turned into something I get to do for real people, real moments, and real memories.</p>
+        <p>My style is <strong>cinematic and intentional</strong> - I love the drama of light, the depth of a great composition, and images that make you feel something when you look at them.</p>
+        <p>Whether it's your wedding day, a headshot for your next big move, or a property that needs to stand out - I show up like a friend, not just a photographer.</p>
+        <div class="whyme-tagline">"Photography is my language -<br>let me help tell your story."</div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-title">Fast Delivery</div>
+            <div class="pillar-desc">Most sessions delivered within 5 days. 48-hour rush delivery available.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Real Direction</div>
+            <div class="pillar-desc">I guide you the whole time. No stiff posing - just good energy and great light.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Always Reachable</div>
+            <div class="pillar-desc">Questions before your session? I respond within 24 hours, always.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Private Gallery</div>
+            <div class="pillar-desc">All sessions delivered via Pixieset - high-res, private, and downloadable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="background:var(--black);border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">What I Shoot</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-body">From intimate portraits to full wedding days - every service delivered with the same care, speed, and eye for detail.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-num">01</div><div class="service-name">Portraits</div><p class="service-desc">Personal portraits that capture character. Studio or outdoor, individual, couples, or family sessions tailored to you.</p><div class="service-arrow">→</div></div>
+      <div class="service-card"><div class="service-num">02</div><div class="service-name">Headshots</div><p class="service-desc">Professional headshots for LinkedIn, corporate profiles, and personal branding that actually make an impression.</p><div class="service-arrow">→</div></div>
+      <div class="service-card"><div class="service-num">03</div><div class="service-name">Real Estate</div><p class="service-desc">Bright, wide, listing-ready photos of interiors and exteriors. Delivered same day or next day for agents in Morris County.</p><div class="service-arrow">→</div></div>
+      <div class="service-card"><div class="service-num">04</div><div class="service-name">Events</div><p class="service-desc">Birthdays, graduations, corporate events, and parties documented with sharp instincts and real storytelling.</p><div class="service-arrow">→</div></div>
+      <div class="service-card"><div class="service-num">05</div><div class="service-name">Weddings</div><p class="service-desc">Full and half-day wedding coverage. Every moment of your day preserved with honesty, artistry, and zero awkward poses.</p><div class="service-arrow">→</div></div>
+      <div class="service-card"><div class="service-num">06</div><div class="service-name">Sports</div><p class="service-desc">Game day coverage, team photos, and student athlete packages. Baseball, basketball, soccer, and more across NJ.</p><div class="service-arrow">→</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio" style="background:var(--black);border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Matthew's <span class="gold">Portfolio</span></h2>
+    <div class="portfolio-tabs">
+      <button class="tab active" onclick="filterPortfolio('all',this)">All</button>
+      <button class="tab" onclick="filterPortfolio('portraits',this)">Portraits</button>
+      <button class="tab" onclick="filterPortfolio('events',this)">Events</button>
+      <button class="tab" onclick="filterPortfolio('real-estate',this)">Real Estate</button>
+      <button class="tab" onclick="filterPortfolio('creative',this)">Creative / Personal</button>
+      <button class="tab" onclick="filterPortfolio('sports',this)">Sports</button>
+    </div>
+    <div class="masonry" id="masonryGrid">
+      <div class="masonry-item" data-cat="creative"><img src="DSC04340.jpg" alt="In Motion" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:280px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">In Motion</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC03832-2.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:360px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">At Rest</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC03913.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:220px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">Close Study</div><div class="overlay-meta">Detail · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC03661.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:300px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">Night Architecture</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC03633.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:260px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">In Flight</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC04323.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:340px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">Portrait Study</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="creative"><img src="DSC03848-2.jpg" alt="" onerror="this.style.display='none'"/><div class="masonry-placeholder" style="height:250px;">Add photo</div><div class="masonry-overlay"><div class="overlay-title">Wingspan</div><div class="overlay-meta">Creative · NJ</div></div></div>
+      <div class="masonry-item" data-cat="portraits"><img src="DSC03428.jpeg" alt="Candid portrait" style="width:100%;display:block;"/><div class="masonry-overlay"><div class="overlay-title">Candid Moment</div><div class="overlay-meta">Portraits · NJ</div></div></div>
+      <div class="masonry-item" data-cat="portraits"><img src="IMG_7231.jpeg" alt="Portrait" style="width:100%;display:block;"/><div class="masonry-overlay"><div class="overlay-title">On the Job</div><div class="overlay-meta">Portraits · NJ</div></div></div>
+      
+      <div class="masonry-item" data-cat="sports"><img src="DSC04394.jpeg" alt="Athlete running" style="width:100%;display:block;"/><div class="masonry-overlay"><div class="overlay-title">Night Warmup</div><div class="overlay-meta">Sports · NJ</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">Honest Pricing, <span class="gold">No Surprises</span></h2>
+    <p class="section-body">Every session includes fast turnaround, online gallery delivery via Pixieset, and full direction throughout.</p>
+    <div class="pricing-grid">
+      <div class="price-card"><div class="price-category">Portraits &amp; Seniors</div><div class="price-name">Portrait Session</div><div class="price-amount">$225</div><div class="price-note">1 Hour · 1 Location · 30+ edited images</div><hr class="price-divider"><div class="price-row"><span>Mini (30 min, 15 imgs)</span><span>$150</span></div><div class="price-row"><span>Extended (90 min, 50 imgs)</span><span>$350</span></div><div class="price-row"><span>Up to 5 day delivery</span><span>Included</span></div><div class="price-row"><span>48-hour rush delivery</span><span>+$75</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+      <div class="price-card"><div class="price-category">Professional</div><div class="price-name">Headshots</div><div class="price-amount">$200</div><div class="price-note">1 Hour · Studio or Outdoor · 20+ edited images</div><hr class="price-divider"><div class="price-row"><span>LinkedIn &amp; brand ready</span><span>✓</span></div><div class="price-row"><span>Multiple looks &amp; angles</span><span>✓</span></div><div class="price-row"><span>Up to 5 day delivery</span><span>Included</span></div><div class="price-row"><span>48-hour rush delivery</span><span>+$75</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+      <div class="price-card"><div class="price-category">Real Estate</div><div class="price-name">Property Shoot</div><div class="price-amount">$175</div><div class="price-note">Per Property · Interior &amp; Exterior · 25+ images</div><hr class="price-divider"><div class="price-row"><span>Large home (2,500–4,000 sq ft)</span><span>$250</span></div><div class="price-row"><span>Luxury / 4,000+ sq ft</span><span>$350</span></div><div class="price-row"><span>Drone add-on</span><span>+$100</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+      <div class="price-card"><div class="price-category">Packages</div><div class="price-name">Graduation Package</div><div class="price-amount">$199</div><div class="price-note">1.5 Hours · 2 Locations · 40+ edited images</div><hr class="price-divider"><div class="price-row"><span>Cap &amp; gown + casual looks</span><span>✓</span></div><div class="price-row"><span>Gallery within 5 days</span><span>Included</span></div><div class="price-row"><span>Student discount available</span><span>10% off</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+      <div class="price-card"><div class="price-category">Events &amp; Weddings</div><div class="price-name">Event Coverage</div><div class="price-amount">$350</div><div class="price-note">Up to 4 Hours · 100+ edited images</div><hr class="price-divider"><div class="price-row"><span>Half day wedding (5 hrs)</span><span>$900</span></div><div class="price-row"><span>Full day wedding (8 hrs)</span><span>$1,200</span></div><div class="price-row"><span>Free engagement w/ full day</span><span>✓</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+      <div class="price-card"><div class="price-category">Sports</div><div class="price-name">Game Coverage</div><div class="price-amount">$175</div><div class="price-note">Per Game · Up to 2 Hours</div><hr class="price-divider"><div class="price-row"><span>Team picture day</span><span>$299</span></div><div class="price-row"><span>Season package (5 games)</span><span>$599</span></div><div class="price-row"><span>Student athlete special</span><span>from $99</span></div><a href="#contact" class="price-btn">Inquire</a></div>
+    </div>
+    <div class="pricing-terms"><strong>Standard terms -</strong> 50% deposit to hold your date · Travel free within Morris County · 48-hour rush delivery +$75 · All sessions via private Pixieset gallery · 10% student discount with valid ID</div>
+  </div>
+</section>
+
+<section class="section booking-section" id="booking">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple Process, <span class="gold">Great Results</span></h2>
+    <div class="booking-steps">
+      <div class="booking-step"><div class="step-num">Step 01</div><div class="step-title">Choose a Session</div><p class="step-desc">Pick the service that fits - portrait, headshot, event, wedding, or sports. Not sure? Just reach out and I'll help figure it out.</p></div>
+      <div class="booking-step"><div class="step-num">Step 02</div><div class="step-title">Pick a Date</div><p class="step-desc">We align on location, timing, and style. I'll send a contract and invoice through HoneyBook - clean and professional.</p></div>
+      <div class="booking-step"><div class="step-num">Step 03</div><div class="step-title">Show Up &amp; Enjoy</div><p class="step-desc">I handle direction and lighting. You focus on being present. Your edited gallery lands within 5 days. Need it faster? 48-hour rush delivery is available for +$75.</p></div>
+    </div>
+    <div class="booking-cta">
+      <h3 style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;margin-bottom:1rem;">Ready to lock in a date?</h3>
+      <a href="https://seenbymatt.hbportal.co/schedule/69cbc8e84747b000291b4678" target="_blank" class="btn-primary">Book a Free 30-Min Consultation</a>
+      <p>Video call · No obligation · I'll answer every question you have</p>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">Social Proof</div>
+    <h2 class="section-title">What Clients <span class="gold">Say</span></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">⭐</div>
+        <p class="testi-quote">Loved your session? Leave a Google review and get <strong style="color:var(--gold)">10% off your next booking.</strong> Just send me the link after and the discount is yours.</p>
+        <div style="margin-top:1.2rem;"><a href="https://g.page/r/review" target="_blank" class="btn-primary" style="font-size:0.75rem;padding:0.7rem 1.4rem;">Leave a Google Review</a></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">🎓</div>
+        <p class="testi-quote">Are you a high school or college student? Ask about the <strong style="color:var(--gold)">student athlete package</strong> starting at $99 - portraits, action shots, and gallery delivery all included. Just show your valid student ID.</p>
+        <div style="margin-top:1.2rem;"><a href="#contact" class="btn-primary" style="font-size:0.75rem;padding:0.7rem 1.4rem;">Book Student Package</a></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">📱</div>
+        <p class="testi-quote">Follow <strong style="color:var(--gold)">@seenbymatt_</strong> on Instagram and TikTok and mention it when you book - you'll get <strong style="color:var(--gold)">5% off</strong> your session. Simple as that.</p>
+        <div style="display:flex;gap:0.75rem;margin-top:1.2rem;flex-wrap:wrap;">
+          <a href="https://instagram.com/seenbymatt_" target="_blank" class="btn-primary" style="font-size:0.75rem;padding:0.7rem 1.4rem;">Instagram</a>
+          <a href="https://tiktok.com/@seenbymatt" target="_blank" class="btn-outline" style="font-size:0.75rem;padding:0.7rem 1.4rem;">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="review-bar">
+      <div style="font-family:var(--font-head);font-size:1rem;font-weight:800;">More reviews coming soon</div>
+      <div class="review-detail" style="margin-left:0;">
+        <p>Be the first to leave a review after your session and lock in <strong>10% off your next booking.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Let's Make Something <span class="gold">Great</span></h2>
+    <div class="contact-grid" style="margin-top:3rem;">
+      <div class="contact-info">
+        <div><div class="contact-item-label">Location</div><div class="contact-item-val">Madison, NJ &middot; Morris County</div></div>
+        <div><div class="contact-item-label">Response Time</div><div class="contact-item-val">Within 24 hours</div></div>
+        <div>
+          <div class="contact-item-label">Follow Along</div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+            <a href="https://instagram.com/seenbymatt_" target="_blank" style="font-size:0.85rem;color:var(--gold);font-weight:600;text-decoration:none;">Instagram &rarr;</a>
+            <a href="https://tiktok.com/@seenbymatt" target="_blank" style="font-size:0.85rem;color:var(--gold);font-weight:600;text-decoration:none;">TikTok &rarr;</a>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:1.5rem;background:var(--gray);border:1px solid var(--border);border-radius:6px;">
+          <div style="font-family:var(--font-head);font-size:1rem;font-weight:800;margin-bottom:0.5rem;">Not sure what you need?</div>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Book a free 30-minute consultation - no pressure, no commitment.</p>
+          <a href="https://seenbymatt.hbportal.co/schedule/69cbc8e84747b000291b4678" target="_blank" class="btn-primary" style="display:block;text-align:center;font-size:0.75rem;padding:0.85rem;">Book Free Consultation</a>
+        </div>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/mykbjdww" method="POST">
+      <div class="form-row">
+        <input type="text" name="first-name" placeholder="First name" required/>
+        <input type="text" name="last-name" placeholder="Last name" required/>
+      </div>
+      <input type="email" name="email" placeholder="Email address" required/>
+      <input type="tel" name="phone" placeholder="Phone number (optional)"/>
+      <select name="service" onchange="this.style.color='var(--white)'" required>
+        <option value="" disabled selected>Select a service...</option>
+        <option>Portraits</option>
+        <option>Headshots</option>
+        <option>Real Estate</option>
+        <option>Event Photography</option>
+        <option>Wedding Photography</option>
+        <option>Sports Photography</option>
+        <option>Not sure yet</option>
+      </select>
+      <textarea name="message" placeholder="Tell me about your project - date, location, vibe, anything helps." required></textarea>
+      <button type="submit" class="contact-submit">Send Inquiry &rarr;</button>
+    </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Seen by Matt</div>
+  <p class="footer-copy">© 2026 Seen by Matt · Madison, NJ · seenbymatt.com</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/seenbymatt_" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@seenbymatt" target="_blank">TikTok</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function filterPortfolio(cat,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.masonry-item').forEach(item=>{
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none';
+  });
+}
